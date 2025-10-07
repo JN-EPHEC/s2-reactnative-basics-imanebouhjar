@@ -1,49 +1,50 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import ProfileCard from "@/components/ProfileCard";
 
 const USERS_DATA = [
-  { id: '1', nom: 'Alice Martin', email: 'alice.martin@email.com' },
-  { id: '2', nom: 'Benjamin Dubois', email: 'ben.dubois@email.com' },
-  { id: '3', nom: 'Chloé Garcia', email: 'chloe.g@email.com' },
-  { id: '4', nom: 'David Petit', email: 'david.petit@email.com' },
-  { id: '5', nom: 'Émilie Rousseau', email: 'emilie.rousseau@email.com' },
+  {
+    id: "1",
+    name: "Alice Martin",
+    jobTitle: "React Native Developer",
+    imageUrl: "https://picsum.photos/seed/alice/200/200",
+  },
+  {
+    id: "2",
+    name: "Benjamin Dubois",
+    jobTitle: "Product Designer",
+    imageUrl: "https://picsum.photos/seed/benjamin/200/200",
+  },
+  {
+    id: "3",
+    name: "Chloé Garcia",
+    jobTitle: "Project Manager",
+    imageUrl: "https://picsum.photos/seed/chloe/200/200",
+  },
 ];
-
 
 export default function HomeScreen() {
   return (
-      <ScrollView>
-        { /* Render the list of users using the UserItem component */ }
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {USERS_DATA.map((user) => (
+          <ProfileCard
+            key={user.id}
+            name={user.name}
+            jobTitle={user.jobTitle}
+            imageUrl={user.imageUrl}
+          />
+        ))}
       </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 20,
-  },
-  item: {
-    backgroundColor: '#ffffff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#ddd',
-  },
-  nom: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  email: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 4,
+  scrollContent: {
+    paddingVertical: 24,
   },
 });
