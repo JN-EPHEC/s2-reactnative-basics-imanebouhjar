@@ -1,24 +1,21 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-// Define the props interface for type safety
 interface ProfileCardProps {
   name: string;
   jobTitle: string;
   imageUrl: string;
 }
 
-// The component receives 'props' as an argument.
-// We use destructuring to get the values we need directly.
-const ProfileCard: React.FC<ProfileCardProps> = ({
-  name,
-  jobTitle,
-  imageUrl,
-}) => {
+const ProfileCard: React.FC<ProfileCardProps> = ({ name, jobTitle, imageUrl }) => {
   return (
-    <>
-      <Text>Replace this part with your soluce</Text>
-    </>
+    <View style={styles.card}>
+      <Image source={{ uri: imageUrl }} style={styles.image} accessibilityRole="image" />
+      <View style={styles.textContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.jobTitle}>{jobTitle}</Text>
+      </View>
+    </View>
   );
 };
 
@@ -27,7 +24,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 16,
     padding: 20,
-    margin: 16,
+    marginVertical: 8,
+    marginHorizontal: 16,
     flexDirection: "row",
     alignItems: "center",
     shadowColor: "#000",
@@ -51,6 +49,7 @@ const styles = StyleSheet.create({
   jobTitle: {
     fontSize: 16,
     color: "gray",
+    marginTop: 4,
   },
 });
 
