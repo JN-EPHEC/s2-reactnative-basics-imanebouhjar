@@ -15,7 +15,7 @@ function HomeScreen() {
     </SafeAreaView>
   );
 }
-
+//je sais pas quoi modifier du coup je rajoute un commentaire incroyable 
 export default HomeScreen; 
 
 const styles = StyleSheet.create({
