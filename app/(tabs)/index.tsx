@@ -15,7 +15,7 @@ function HomeScreen() {
     </SafeAreaView>
   );
 }
-
+//cvghcjty
 export default HomeScreen; 
 
 const styles = StyleSheet.create({
